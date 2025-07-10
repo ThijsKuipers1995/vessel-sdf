@@ -1,0 +1,29 @@
+sdf:
+  resolution: 128
+  level: 0.0
+  offset: 0.002
+  scale: 1.0
+  grid_batch_size: 65536
+sample:
+  num_samples: 1
+  seed: -1
+  num_steps: 100
+  rho: 8
+  churn: 25
+model:
+  decoder:
+    path: "checkpoints\\topcow\\decoder"
+    name: "psSDF-kl-np2048-ns2048-nv1024-nl256-f192-e6-d0-mlp1-l32-h8-9k"
+    epoch: 9000
+  generator:
+    path: "checkpoints\\topcow\\generator"
+    name: "psSDF-gen-nl256-f192-d6-l32-h8-kl-6k"
+    epoch: 6000
+save:
+  path: "samples"
+  mesh: True
+  centerline: True
+  latents: True
+  sdf: False
+device: "cuda"
+
